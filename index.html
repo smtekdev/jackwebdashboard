@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three Column Layout</title>
+    <link rel="stylesheet" href="css/styles.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Left Column (Sticky) -->
+        <div class="left-column">
+            <div class="sticky">
+                <h2>Playlist</h2>
+                <p>Artist: John Doe</p> <!-- Replace with the actual artist's name -->
+
+                <!-- Spotify Playlist Embed -->
+                <iframe style="border-radius:12px"
+                    src="https://open.spotify.com/embed/playlist/37i9dQZF1DZ06evO4cHMyv?utm_source=generator&theme=0"
+                    width="100%" height="352" frameBorder="0" allowfullscreen=""
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
+                </iframe>
+
+                <h2 style="margin-top: 30px;">Playlist</h2>
+                <p>Artist: John Doe</p> <!-- Replace with the actual artist's name -->
+
+                <!-- Spotify Playlist Embed -->
+                <iframe style="border-radius:12px"
+                    src="https://open.spotify.com/embed/playlist/37i9dQZF1E4maYvckcMZ0B?utm_source=generator&theme=0"
+                    width="100%" height="352" frameBorder="0" allowfullscreen=""
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"></iframe>
+
+
+
+            </div>
+        </div>
+        <!-- End Left Column -->
+
+
+        <!-- Center Column (Non-sticky) -->
+        <div class="center-column">
+
+            <!-- Start JUST A SMIRK Section -->
+
+            <div class="content-section">
+                <div class="four-columns">
+
+
+                    <div class="smirk-column">
+                        <div class="column-content">
+                            <p>
+                                Life’s Little Lessons in
+                                Quotes
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <div class="smirk-column">
+                        <div class="column-content">
+                            <p>
+                                Notes & Playlists: My Musical Journey
+
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <div class="smirk-column">
+                        <div class="column-content">
+                            <p>
+                                Turning the Grind into a Grin: Jack’s Intro
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <div class="smirk-column">
+                        <div class="column-content">
+                            <p>
+                                Cookies & Pickups: The Battle Between Wants and Needs
+                            </p>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <!-- End JUST A SMIRK Section -->
+
+            <!-- Start Post Section -->
+            <div class="content-section">
+                <div class="create-post-section">
+                    <div class="post-header">
+                        <img src="assets/images/postimg.jpg" alt="Profile" class="profile-image">
+                        <input type="text" placeholder="What's on your mind?" class="post-input">
+                    </div>
+                    <div class="post-options">
+                        <button class="option-btn" onclick="openPopup('photo')">
+                            <i class="fas fa-camera"></i> Photo
+                        </button>
+                        <button class="option-btn" onclick="openPopup('video')">
+                            <i class="fas fa-video"></i> Video
+                        </button>
+                        <button class="option-btn" onclick="openPopup('event')">
+                            <i class="fas fa-calendar-alt"></i> Event
+                        </button>
+                        <button class="option-btn" onclick="openPopup('other')">
+                            <i class="fas fa-ellipsis-h"></i> Other
+                        </button>
+                    </div>
+                    <!-- Post Button -->
+                    <button class="post-btn" onclick="submitPost()">Post</button>
+                </div>
+
+
+                <!-- Popup Box (hidden by default) -->
+                <div id="popup" class="popup-box" style="display: none;">
+                    <div class="popup-content">
+                        <span class="close-btn" onclick="closePopup()">&times;</span>
+                        <h3 id="popup-title"></h3>
+                        <input type="file" id="popup-file-input" style="display: none;">
+                        <textarea id="popup-textarea" placeholder="Enter details..."></textarea>
+                        <!-- Upload Button inside Popup -->
+                        <button class="upload-btn" onclick="uploadMedia()">Upload</button>
+                    </div>
+                </div>
+
+            </div>
+            <!-- End Post Section -->
+
+
+            <!-- Start Quote Section -->
+            <div class="content-section">
+                <div class="quote-section">
+                    <div class="quote-header">
+                        <img src="assets/images/showpost.jpg" alt="Profile" class="quote-profile-image">
+                        <div class="quote-info">
+                            <span class="quote-username">Frances Guerrero</span>
+                            <span class="quote-time">2 hours ago</span>
+                            <!-- <div class="quote-three-dots" onclick="toggleQuoteOptions(this)">&#x2026;</div>
+                            <div class="quote-options" style="display: none;">
+                                <ul>
+                                    <li>Save Post</li>
+                                    <li>Unfollow Frances Guerrero</li>
+                                    <li onclick="toggleQuoteOptions(this.parentNode.parentNode)">Hide Post</li>
+                                    <li>Block</li>
+                                    <li>Report Post</li>
+                                </ul>
+                            </div> -->
+                        </div>
+                    </div>
+
+                    <div class="quote-content">
+                        <p>
+                            “I was young and foolish then; now I am old and foolisher.”
+                        </p>
+                        <img src="assets/images/showpostimg.jpg" alt="Post Image" class="quote-image">
+                    </div>
+
+                    <div class="quote-actions">
+                        <button class="quote-like-btn"><i class="icon-like"></i> Like</button>
+                        <button class="quote-comment-btn"><i class="icon-comment"></i> Comment</button>
+                        <button class="quote-share-btn">Share</button>
+                    </div>
+
+                    <!-- Comments Section -->
+                    <div class="quote-comments-section">
+                        <div class="quote-comment-input">
+                            <img src="assets/images/commentLike_.jpg" alt="Profile" class="quote-profile-image">
+                            <input type="text" placeholder="Write a comment..." class="quote-comment-field">
+                        </div>
+
+                        <div class="quote-comments">
+                            <div class="quote-comment">
+                                <img src="assets/images/showcomment.jpg" alt="Profile" class="quote-profile-image">
+                                <div class="quote-comment-info">
+                                    <span class="quote-comment-username">John Doe</span>
+                                    <p class="quote-comment-text">It captures the relatable experience of realizing that
+                                        we often repeat the same mistakes, no matter how much we grow.</p>
+                                    <div class="quote-comment-actions">
+                                        <span class="quote-like">Like</span>
+                                        <span class="quote-reply">Reply</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="quote-comment">
+                                <img src="assets/images/04-NoooYKt_.jpg" alt="Profile" class="quote-profile-image">
+                                <div class="quote-comment-info">
+                                    <span class="quote-comment-username">Dennis Barrett</span>
+                                    <p class="quote-comment-text">This quote humorously reflects the irony of aging,
+                                        suggesting that wisdom doesn’t always come with age</p>
+                                    <div class="quote-comment-actions">
+                                        <span class="quote-like">Like</span>
+                                        <span class="quote-reply">Reply</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Additional comments can be added here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- End Quote Section -->
+
+
+            <!-- Additional sections can be added here -->
+        </div>
+
+        <!-- Right Column (Sticky) -->
+        <div class="right-column">
+            <div class="sticky">
+                <h2>TODAY’S COLUMN</h2>
+
+                <!-- First Row -->
+                <div class="row">
+                    <div class="col-30">
+                        <img src="assets/images/totaysColumn1.jpg" alt="Image 1" class="row-image">
+                    </div>
+                    <div class="col-70">
+                        <span class="row-title">Sweet Temptations: The Psychology Behind Cravings</span>
+                    </div>
+                </div>
+
+                <!-- Second Row -->
+                <div class="row">
+                    <div class="col-30">
+                        <img src="assets/images/todayscolumn2.jpg" alt="Image 2" class="row-image">
+                    </div>
+                    <div class="col-70">
+                        <span class="row-title">The Pickup Phenomenon: Why We Crave the Ideal Vehicle</span>
+                    </div>
+                </div>
+
+                <!-- Third Row -->
+                <div class="row">
+                    <div class="col-30">
+                        <img src="assets/images/todayscolumn3.jpg" alt="Image 3" class="row-image">
+                    </div>
+                    <div class="col-70">
+                        <span class="row-title">
+                            Balancing Wants and Needs: Making Smart Choices</span>
+                    </div>
+                </div>
+
+                <!-- Fourth Row -->
+                <div class="row">
+                    <div class="col-30">
+                        <img src="assets/images/todayscolumn4.jpg" alt="Image 4" class="row-image">
+                    </div>
+                    <div class="col-70">
+                        <span class="row-title">Dressed to Express: My Life in T-Shirts</span>
+                    </div>
+                </div>
+
+                <h2 style="margin-top: 30px;">OTHER COLUMNS</h2>
+
+                <div class="row">
+                    <div class="col-30">
+                        <img src="assets/images/othercolum.jpg" alt="Image 1" class="row-image">
+                    </div>
+                    <div class="col-70">
+                        <span class="row-title">The Timeless Appeal of Vintage Fashion</span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-30">
+                        <img src="assets/images/othercolumn2.jpg" alt="Image 1" class="row-image">
+                    </div>
+                    <div class="col-70">
+                        <span class="row-title">Why Old Gadgets Are Making a Comeback</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-30">
+                        <img src="assets/images/othercolumn3.jpg" alt="Image 1" class="row-image">
+                    </div>
+                    <div class="col-70">
+                        <span class="row-title">Why Craftsmanship Is Making a Comeback</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-30">
+                        <img src="assets/images/othercolumn4.jpg" alt="Image 1" class="row-image">
+                    </div>
+                    <div class="col-70">
+                        <span class="row-title">
+                            Because Camp Rhymes with Damp</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Right Column -->
+
+    </div>
+
+
+    <script src="assets/js/jackScript.js"></script>
+
+</body>
+
+</html>
